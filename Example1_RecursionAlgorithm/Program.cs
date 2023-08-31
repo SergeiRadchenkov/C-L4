@@ -6,17 +6,36 @@ for (int rows = 0; rows < 2; rows++)
     {
         Console.WriteLine($"-{table[rows, columns]}-");
     }
-} */ 
+} */
+
+
+using System.Numerics;
 
 void PrintArray(int[,] matr)
 {
-    int[,] matr = new int[3, 4];
-        for (int i = 0; i < matr.GetLength(0); i++)
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
-            for (int j = 0; j < matr.GetLength(1); j++)
-            {
-                 Console.Write($"{matr[i, j]} ");
-            }
-            Console.WriteLine();
+            Console.Write($"{matr[i, j]} ");
         }
+        Console.WriteLine();
+    }
 }
+
+void FillArray(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(1, 10);
+        }
+    }
+}
+
+int[,] matrix = new int[3, 4];
+PrintArray(matrix);
+FillArray(matrix);
+Console.WriteLine();
+PrintArray(matrix);
